@@ -24,7 +24,7 @@
       }
     },
     {
-      "name": "universal",
+      "name": "ssr",
       "platform": "server",
       "root": "src",
       "outDir": "dist/server",

@@ -10,7 +10,7 @@
       "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles":
-      "ng build --prod && ng build --prod --app universal --output-hashing=false",
+      "ng build --prod && ng build --prod --app ssr --output-hashing=false",
     "webpack:server":
       "webpack --config webpack.server.config.js --progress --colors",
     "test": "ng test",

@@ -26,7 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     SharedModule,
     LayoutModule,
-    BrowserModule.withServerTransition({ appId: 'universal' }),
+    BrowserModule.withServerTransition({ appId: 'ssr' }),
     HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
