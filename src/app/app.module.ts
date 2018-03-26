@@ -7,6 +7,7 @@ import {
   HttpClient,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -25,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     SharedModule,
     LayoutModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'universal' }),
+    HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

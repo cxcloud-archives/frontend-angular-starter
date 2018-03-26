@@ -1,11 +1,18 @@
 {
-  "name": "viasat-frontend",
+  "name": "frontend-angular-starter",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
+    "build:ssr":
+      "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:ssr": "node dist/server.js",
+    "build:client-and-server-bundles":
+      "ng build --prod && ng build --prod --app universal --output-hashing=false",
+    "webpack:server":
+      "webpack --config webpack.server.config.js --progress --colors",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -13,10 +20,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.{css,scss,js,ts,json}'": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{css,scss,js,ts,json}'": ["prettier --write", "git add"]
   },
   "private": true,
   "dependencies": {
@@ -28,7 +32,11 @@
     "@angular/http": "^5.2.0",
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/platform-server": "^5.2.9",
     "@angular/router": "^5.2.0",
+    "@nguniversal/common": "^5.0.0-beta.8",
+    "@nguniversal/express-engine": "^5.0.0-beta.8",
+    "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.8",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "core-js": "^2.4.1",
@@ -54,6 +62,7 @@
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.1",
     "protractor": "~5.1.2",
+    "ts-loader": "^3.5.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
